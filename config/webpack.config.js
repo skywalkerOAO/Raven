@@ -1,4 +1,5 @@
 'use strict';
+const SemiWebpackPlugin = require('@douyinfe/semi-webpack-plugin').default;
 
 const fs = require('fs');
 const path = require('path');
@@ -563,6 +564,12 @@ module.exports = function (webpackEnv) {
       ].filter(Boolean),
     },
     plugins: [
+
+      new SemiWebpackPlugin({
+              theme: '@semi-bot/semi-theme-raven',
+              include: '~@semi-bot/semi-theme-raven/scss/local.scss'
+               /* ...options */
+         }), 
       // Generates an `index.html` file with the <script> injected.
       new HtmlWebpackPlugin(
         Object.assign(

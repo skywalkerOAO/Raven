@@ -6,7 +6,9 @@
   "dependencies": {
     "@babel/core": "^7.16.0",
     "@douyinfe/semi-ui": "^2.12.0",
+    "@douyinfe/semi-webpack-plugin": "^2.20.0",
     "@pmmmwh/react-refresh-webpack-plugin": "^0.5.3",
+    "@semi-bot/semi-theme-raven": "^1.0.0",
     "@svgr/webpack": "^5.5.0",
     "@testing-library/jest-dom": "^5.14.1",
     "@testing-library/react": "^13.0.0",

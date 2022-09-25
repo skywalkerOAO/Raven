@@ -2,6 +2,7 @@ import React from 'react';
 import styles from './index.module.scss'
 import { Button } from '@douyinfe/semi-ui';
 import { IconMinus, IconClose } from '@douyinfe/semi-icons'
+import logo from '../../static/img/logo.svg'
 interface IProps {
 
 }
@@ -13,9 +14,8 @@ interface IState {
 class FormHeader extends React.PureComponent<IProps, IState> {
 
     state = {
-        imgurl: ''
+        imgurl: logo
     }
-
     componentDidMount() {
         const closebt = document.getElementById('closebt')
         const minbt = document.getElementById('minbt')

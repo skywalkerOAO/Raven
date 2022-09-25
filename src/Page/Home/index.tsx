@@ -21,7 +21,7 @@ class Home extends React.Component<IProps, IState> {
         <>
         <li>Welcom use EL-TS </li>
         <li>Create by Hexar</li>
-        <li>More information plesae visit </li>
+        <li></li>
         </>
         );
     }

@@ -1,6 +1,6 @@
-$winform-color: rgb(183, 194, 209);
+$winform-color: rgba(40,50,56, 1);
 $drag-opt: no-drag;
-$height:50px;
+$height:40px;
 $width:50px;
 .winform {
     height: $height;
@@ -19,6 +19,7 @@ $width:50px;
 .topbar_logo_container {
     position: absolute;
     left:10px;
+    margin-top: 7px;
     height: $height*0.95;
     width: $width*2;
     background-size: contain !important;
@@ -26,3 +27,5 @@ $width:50px;
     display: flex;
     align-items: center;
 }
+
+  

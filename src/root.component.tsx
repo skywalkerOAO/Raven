@@ -4,7 +4,10 @@ import asyncComponent from './aysncComponent'
 import { FormHeader } from './Layout'
 import styles from './static/gobal.module.scss'
 import './static/reset.scss'
-const {_width,_height} = require('./gobalSettngs')
+import { Layout } from '@douyinfe/semi-ui';
+import SiderBar from './Layout/Siderbar'
+const { _width, _height } = require('./gobalSettngs')
+const { Sider, Content } = Layout;
 //合理使用异步路由与路由 获得更好的用户体验
 //局部刷新
 
@@ -17,18 +20,24 @@ class RootComponent extends React.Component {
 
   render() {
     return (
-      <div style={{width:_width,height:_height}}>
+      <div style={{ width: _width, height: _height }}>
         <FormHeader />
-        <div className={styles.child_winform} >
-          <BrowserRouter>
-            <Routes>
-              {/* 从上往下添加 否则Home会遍历 */}
-              {/* 后台页面路由 */}
-              {/* 主页面路由 */}
-              <Route path='/' element={<Home />} />
-            </Routes>
-          </BrowserRouter>
-        </div>
+        <Layout className="components-layout-demo">
+          <Sider><SiderBar /></Sider>
+          <Layout>
+            <Content>
+              <div className={styles.child_winform} >
+                <BrowserRouter>
+                  <Routes>
+                    {/* 主页面路由 */}
+                    <Route path='/' element={<Home />} />
+                  </Routes>
+                </BrowserRouter>
+              </div>
+            </Content>
+          </Layout>
+        </Layout>
+
       </div>
     )
   }
