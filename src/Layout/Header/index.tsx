@@ -8,13 +8,15 @@ interface IState {
   imgurl: string
   mode: string
 }
-
+let localStorage = window.localStorage
 class FormHeader extends React.PureComponent<IProps, IState> {
   state = {
     imgurl: '',
     mode: '暗',
   }
+  
   componentDidMount() {
+   
     const closebt = document.getElementById('closebt')
     const minbt = document.getElementById('minbt')
     minbt?.addEventListener('click', () => {
@@ -23,14 +25,28 @@ class FormHeader extends React.PureComponent<IProps, IState> {
     closebt?.addEventListener('click', () => {
       ;(window as any).ipcRenderer.send('window-close')
     })
+
+    const body = document.body
+    if (!localStorage['pageMode']) {
+      localStorage['pageMode'] = 'light'
+    }
+    if (localStorage['pageMode'] === 'dark') {
+      body.setAttribute('theme-mode', 'dark')
+    }
+    if (localStorage['pageMode'] === 'light') {
+      if (body.hasAttribute('theme-mode')) {
+        body.removeAttribute('theme-mode')
+      }
+    }
   }
   switchMode = () => {
     const body = document.body
     if (body.hasAttribute('theme-mode')) {
       body.removeAttribute('theme-mode')
-      // 以下这行代码，window.setMode仅用于当通过本Demo切换时，通知Semi官网Header记录更新当前模式（只用于演示）。在您的代码里无需存在。
+      localStorage['pageMode'] = 'light'
     } else {
       body.setAttribute('theme-mode', 'dark')
+      localStorage['pageMode'] = 'dark'
     }
   }
   render() {

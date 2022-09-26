@@ -34,7 +34,8 @@ const SiderBar = () => {
         ]}
         onSelect={key => navigate(`/${key.itemKey}`)}
         header={{
-          logo: <img src='http://cdn.jandan.net/wp-content/themes/egg/images/logo-2018.gif' />,
+          // eslint-disable-next-line jsx-a11y/alt-text
+          logo: <img src='https://img.gameproto.com/2022/09/26/83087f5e062d9.jpg' />,
           text: userInfo,
         }}
       />

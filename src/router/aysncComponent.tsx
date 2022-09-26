@@ -1,5 +1,4 @@
 import{ Component } from 'react'
-
 export default function asyncComponent(importComponent:any, delay = 0) {
   class AsyncComponent extends Component<any, any> {
     constructor(props:any) {
@@ -10,6 +9,7 @@ export default function asyncComponent(importComponent:any, delay = 0) {
     }
 
     async componentDidMount() {
+    
       const { default: component } = await importComponent()
       setTimeout(() => {
         this.setState({

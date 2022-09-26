@@ -6,7 +6,7 @@ const {
 } = require('electron')
 const path = require('path')
 const url = require('url')
-const { _width, _height } = require('../src/gobalSettngs')
+const { _width, _height } = require('../src/gobalSettings')
 // 保持对window对象的全局引用，如果不这么做的话，当JavaScript对象被
 // 垃圾回收的时候，window对象将会自动的关闭
 let win

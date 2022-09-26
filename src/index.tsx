@@ -4,6 +4,7 @@ import { history,HistoryRouter } from './router/history'
 
 const root = ReactDOM.createRoot(document.getElementById('root') as HTMLElement)
 root.render(
+  
   <HistoryRouter history={history}>
     <RootComponent />
   </HistoryRouter>
