@@ -6,7 +6,7 @@ const {
 } = require('electron')
 const path = require('path')
 const url = require('url')
-const { _width, _height } = require('../src/gobalSettings')
+const { _width, _height, electronHeight } = require('../src/gobalSettings')
 // 保持对window对象的全局引用，如果不这么做的话，当JavaScript对象被
 // 垃圾回收的时候，window对象将会自动的关闭
 let win
@@ -21,10 +21,10 @@ function createWindow() {
     // 创建浏览器窗口。
     win = new BrowserWindow({
         width: _width,
-        height: _height,
+        height: electronHeight,
         maximizable: false,
         minimizable: false,
-        resizable: false,
+        resizable: true,
         fullscreenable: false,
         frame: false,
         transparent: true,
