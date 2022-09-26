@@ -1,10 +1,10 @@
-import ReactDOM from 'react-dom/client';
-import RootComponent from './root.component';
+import ReactDOM from 'react-dom/client'
+import RootComponent from './router/root.component'
+import { history,HistoryRouter } from './router/history'
 
-const root = ReactDOM.createRoot(
-  document.getElementById('root') as HTMLElement
-);
+const root = ReactDOM.createRoot(document.getElementById('root') as HTMLElement)
 root.render(
-    <RootComponent/>
+  <HistoryRouter history={history}>
+    <RootComponent />
+  </HistoryRouter>
 )
-

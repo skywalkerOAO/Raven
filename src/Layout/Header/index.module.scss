@@ -1,4 +1,4 @@
-$winform-color: rgba(40,50,56, 1);
+$winform-color: var(--semi-color-bg-1);
 $drag-opt: no-drag;
 $height:40px;
 $width:50px;
@@ -7,12 +7,13 @@ $width:50px;
     -webkit-app-region: drag;
     border-radius: 5px 5px 0px 0px;
     background-color: $winform-color;
+    border-bottom: 1px solid var(--semi-color-border);
 }
 
 .btn {
     height: $height !important;
     float: right;
-    background-color: raba(255,255,255,1);
+    background-color: $winform-color;
     -webkit-app-region: $drag-opt;
 }
 
