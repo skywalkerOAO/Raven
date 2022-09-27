@@ -8,7 +8,7 @@ interface HistoryRouterProps {
   history: typeof history
   children:any
 }
-
+// react-router-dom 外部调用 route需要用此包裹 已置于index中
 export const HistoryRouter: React.FC<HistoryRouterProps> = ({ history, children }) => {
   const [state, setState] = React.useState({
     action: history.action,
