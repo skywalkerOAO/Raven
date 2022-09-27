@@ -1,0 +1,12 @@
+.main_frame {
+  width: 100vw;
+  height: 100vh;
+  background-color: var(--semi-color-bg-1);
+  box-sizing: border-box;
+}
+.semi_layout1{
+    height:  calc(100% - 40px) //头部高度40
+}
+.semi_layout2{
+  height:  100%
+}

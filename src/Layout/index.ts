@@ -1,1 +1,1 @@
-export {default as FormHeader} from './Header'
+export {default as WinHeader} from './Header'

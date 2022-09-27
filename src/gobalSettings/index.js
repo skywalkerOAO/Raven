@@ -1,3 +1,7 @@
-exports.electronHeight = 768
-exports._width = 1024
-exports._height = this.electronHeight -50
+const electronHeight = 768
+const width = 1024
+
+
+exports._electronHeight = electronHeight
+exports._width = width
+

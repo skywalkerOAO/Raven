@@ -11,18 +11,17 @@ import {
 } from '@douyinfe/semi-icons'
 import styles from './index.module.scss'
 import { useNavigate } from 'react-router-dom'
-const { _height } = require('../../gobalSettings')
 
 const SiderBar = () => {
   const navigate = useNavigate()
   const [userInfo, setUserinfo] = useState<string>('请登录')
   useEffect(() => {}, [])
   return (
-    <div>
+    <div className={styles.bar}>
       <Nav
         isCollapsed={true}
         defaultOpenKeys={['job']}
-        bodyStyle={{ height: _height }}
+        className={styles.bar}
         items={[
           { itemKey: 'me', text: '个人中心', icon: <IconUser /> },
           { itemKey: 'news', text: '新鲜事', icon: <IconHorn /> },

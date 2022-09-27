@@ -6,7 +6,7 @@ const {
 } = require('electron')
 const path = require('path')
 const url = require('url')
-const { _width, _height, electronHeight } = require('../src/gobalSettings')
+const { _width, electronHeight } = require('../src/gobalSettings')
 // 保持对window对象的全局引用，如果不这么做的话，当JavaScript对象被
 // 垃圾回收的时候，window对象将会自动的关闭
 let win
@@ -24,7 +24,7 @@ function createWindow() {
         height: electronHeight,
         maximizable: false,
         minimizable: false,
-        resizable: true,
+        resizable: false,
         fullscreenable: false,
         frame: false,
         transparent: true,
@@ -39,7 +39,7 @@ function createWindow() {
     win.loadURL("http://localhost:3000")
 
     // 打开开发者工具
-    //win.webContents.openDevTools()
+    win.webContents.openDevTools()
 
     // 当 window 被关闭，这个事件会被触发。
     win.on('closed', () => {
@@ -55,7 +55,6 @@ function createWindow() {
 // 部分 API 在 ready 事件触发后才能使用。
 app.on('ready', () => {
     createWindow()
-    console.log(_height)
 })
 
 // 当全部窗口关闭时退出。
