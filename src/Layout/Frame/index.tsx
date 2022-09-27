@@ -3,8 +3,8 @@ import { WinHeader } from '../../Layout'
 import { Layout } from '@douyinfe/semi-ui'
 import SiderBar from '../../Layout/Siderbar'
 import Styles from './frame.module.scss'
-import Semi from './index.module.scss'
-const { Sider, Content, Header,Footer } = Layout
+import Semi from './semi.module.scss'
+const { Sider, Content, Header } = Layout
 
 interface IProps {
   children: any
