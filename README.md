@@ -1,21 +1,11 @@
-# TS Templete & Electron
-欢迎使用hexar-cli创建TS/JS模板
-此模板为TypeScript+React+Electron跨平台解决方案
-## 如何使用？hexar-cli
+#### 介绍
+XSDL 变化点平台
 
-```shell
- npm install hexar-cli -g
- hexar init
-```
-选择你想要的模板即可！
-## 如何启动
+#### 软件架构
+前端为React框架
+后端为Golang自研框架
 
-需要启动两个终端
-一个运行
-```shell
- npm start
-```
-另一个运行
-```shell
- npm run electron-start
-```
+
+
+
+

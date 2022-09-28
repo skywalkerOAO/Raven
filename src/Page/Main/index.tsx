@@ -12,7 +12,9 @@ class Main extends React.Component<IProps, IState> {
   state = {
     key: 0,
   }
-  componentDidMount() {}
+  async componentDidMount() {
+
+  }
 
   render() {
     return (

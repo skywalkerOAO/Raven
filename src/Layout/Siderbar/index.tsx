@@ -8,6 +8,7 @@ import {
   IconFavoriteList,
   IconHorn,
   IconInbox,
+  IconHome
 } from '@douyinfe/semi-icons'
 import styles from './index.module.scss'
 import { useNavigate } from 'react-router-dom'
@@ -23,6 +24,7 @@ const SiderBar = () => {
         defaultOpenKeys={['job']}
         className={styles.bar}
         items={[
+          { itemKey: '', text: '主页', icon: <IconHome /> },
           { itemKey: 'me', text: '个人中心', icon: <IconUser /> },
           { itemKey: 'news', text: '新鲜事', icon: <IconHorn /> },
           { itemKey: 'pic', text: '无聊图', icon: <IconInbox /> },

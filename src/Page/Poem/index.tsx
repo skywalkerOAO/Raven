@@ -1,43 +1,44 @@
-import { Button, Card, Typography,Modal } from '@douyinfe/semi-ui'
+import { Button, Card, Typography, Modal } from '@douyinfe/semi-ui'
 import React from 'react'
 import './index.scss'
+import store from './store'
 interface IProps {
-  // keys: number
+    // keys: number
 }
 
 interface IState {
-  // key: number
+    HotBook: Array<any>
 }
-const { Text } = Typography
+const { Meta } = Card
 class Poem extends React.Component<IProps, IState> {
-  state = {
-    key: 0,
-    visible:false
-  }
-  componentDidMount() {}
-  showDialog = ()=>{
-    this.setState({
-      visible:true
-    })
-  }
-  render() {
-    return (
-      <>
-         <Button onClick={this.showDialog}>打开弹窗</Button>
-            <Modal
-                title="基本对话框"
-                visible={this.state.visible}
-                onOk={()=>{this.setState({visible:false})}}
-                onCancel={()=>{this.setState({visible:false})}}
-                closeOnEsc={true}
-            >
-                This is the content of a basic modal.
-                <br />
-                More content...
-            </Modal>
-      </>
-    )
-  }
+    state = {
+        HotBook: []
+    }
+    async componentDidMount() {
+        await store.GetHot()
+        this.setState(
+            {
+                HotBook: store.HotBookList
+            },
+            () => {
+                console.log(this.state.HotBook)
+            }
+        )
+    }
+
+    render() {
+        return (
+            <>
+                {store.HotBookList.map((item: any, index: any, array: any) => {
+                    return (
+                        <Card style={{ maxWidth: 360 }} bordered={false} headerLine={true} title={<Meta title={item.Name} description={item.Author} />} headerExtraContent={<span>{item.CName}</span>}>
+                            {item.Desc}
+                        </Card>
+                    )
+                })}
+            </>
+        )
+    }
 }
 
 export default Poem

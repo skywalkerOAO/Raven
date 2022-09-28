@@ -1,16 +1,16 @@
 import React from 'react'
 import { Route, Routes } from 'react-router-dom'
 import asyncComponent from './aysncComponent'
-import Frame from '../Layout/Frame'
+import Frame from '../layout/Frame'
 // 主页面路由地址 使用异步路由
-const Me = asyncComponent(() => import('../Page/Me/index'))
-const News = asyncComponent(() => import('../Page/News/index'))
-const Main = asyncComponent(() => import('../Page/Main/index'))
-const Poem = asyncComponent(() => import('../Page/Poem/index'))
-const Video = asyncComponent(() => import('../Page/Video/index'))
-const Favorite = asyncComponent(() => import('../Page/Favorite/index'))
-const Cartoon = asyncComponent(() => import('../Page/Cartoon/index'))
-const Pic = asyncComponent(() => import('../Page/Pic/index'))
+const Me = asyncComponent(() => import('../page/Me/index'))
+const News = asyncComponent(() => import('../page/News/index'))
+const Main = asyncComponent(() => import('../page/Main/index'))
+const Poem = asyncComponent(() => import('../page/Poem/index'))
+const Video = asyncComponent(() => import('../page/Video/index'))
+const Favorite = asyncComponent(() => import('../page/Favorite/index'))
+const Cartoon = asyncComponent(() => import('../page/Cartoon/index'))
+const Pic = asyncComponent(() => import('../page/Pic/index'))
 class RootComponent extends React.Component {
   render() {
     return (

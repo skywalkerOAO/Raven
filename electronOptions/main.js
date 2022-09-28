@@ -1,8 +1,7 @@
 const {
     app,
     BrowserWindow,
-    ipcMain,
-    ipcRenderer
+    ipcMain
 } = require('electron')
 const path = require('path')
 const url = require('url')
@@ -17,17 +16,27 @@ ipcMain.on('window-close', function () {
 ipcMain.on('window-min', function () {
     win.minimize();
 })
+ipcMain.on('window-max', function () {
+    if (win.isMaximized()) {
+        win.restore();
+    } else {
+        win.maximize();
+    }
+
+})
 function createWindow() {
     // 创建浏览器窗口。
     win = new BrowserWindow({
         width: _width,
         height: electronHeight,
+        minHeight:600,
+        minWidth:800,
         maximizable: false,
         minimizable: false,
-        resizable: false,
+        resizable: true,
         fullscreenable: false,
         frame: false,
-        transparent: true,
+        transparent: false,
         hasShadow: false,
         webPreferences: {
             nodeIntegration: true,

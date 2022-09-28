@@ -23,9 +23,9 @@ class Me extends React.Component<IProps, IState> {
   render() {
     return (
       <>
-         <Button onClick={this.showDialog}>打开弹窗</Button>
+         <Button onClick={this.showDialog}>打开弹窗123</Button>
             <Modal
-                title="基本对话框"
+                title="123456"
                 visible={this.state.visible}
                 onOk={()=>{this.setState({visible:false})}}
                 onCancel={()=>{this.setState({visible:false})}}
