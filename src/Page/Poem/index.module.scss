@@ -1,0 +1,23 @@
+.search_box{
+    display: flex;
+    height: 200px;
+    justify-content: center;
+    align-items: center;
+}
+.search_wrap{
+    width: 50%;
+}
+.NovelCol{
+    display: flex;
+    justify-content: center;
+}
+.novel_desc{
+    height: 100%;
+    white-space: pre-wrap;
+    text-overflow: ellipsis;
+}
+.card_box{
+    width:80%;
+    height: 222px;
+    padding: 2px;
+}

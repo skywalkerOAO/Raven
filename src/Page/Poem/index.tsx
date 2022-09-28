@@ -1,42 +1,36 @@
-import { Button, Card, Typography, Modal } from '@douyinfe/semi-ui'
+import { Button, Card, Typography, Space, Row, Col } from '@douyinfe/semi-ui'
 import React from 'react'
-import './index.scss'
+import HotNovel from './hotNovel'
+import styles from './index.module.scss'
+import Search from './serch'
 import store from './store'
 interface IProps {
     // keys: number
 }
 
 interface IState {
-    HotBook: Array<any>
+    HotBook1: Array<any>
+    HotBook2: Array<any>
 }
 const { Meta } = Card
 class Poem extends React.Component<IProps, IState> {
     state = {
-        HotBook: []
+        HotBook1: [],
+        HotBook2: []
     }
     async componentDidMount() {
-        await store.GetHot()
-        this.setState(
-            {
-                HotBook: store.HotBookList
-            },
-            () => {
-                console.log(this.state.HotBook)
-            }
-        )
-    }
+       
 
+    }
+    async UNSAFE_componentWillMount() {
+       
+    }
     render() {
         return (
-            <>
-                {store.HotBookList.map((item: any, index: any, array: any) => {
-                    return (
-                        <Card style={{ maxWidth: 360 }} bordered={false} headerLine={true} title={<Meta title={item.Name} description={item.Author} />} headerExtraContent={<span>{item.CName}</span>}>
-                            {item.Desc}
-                        </Card>
-                    )
-                })}
-            </>
+            <div>
+                <Search/>
+                <HotNovel />
+            </div>
         )
     }
 }

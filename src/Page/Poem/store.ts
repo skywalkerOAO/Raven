@@ -6,7 +6,7 @@ import api_Path from '../../api/index';
 
 
 class store {
-    @observable HotBookList: any = []
+    @observable HotBookList:any = []
     @observable SearchList:any = []
 
     @action.bound GetHot = async (params = {}) => {
