@@ -8,15 +8,16 @@ export default defineConfig({
   server: {
     host: "0.0.0.0",
     proxy: {
-      '/top/man': {
+      '/novel/novelHot': {
         //target: 'http://localhost:10001',
         target: 'https://scxs.pysmei.com',
         changeOrigin: true,
-        // rewrite: path => path.replace(/^\/api/, '')
+        rewrite: path => path.replace(/^\/novel\/novelHot/, '')
       },
-      '/search.aspx?':{
+      '/novel/novelSearch': {
         target: 'https://souxs.leeyegy.com',
         changeOrigin: true,
+        rewrite: path => path.replace(/^\/novel\/novelSearch/, '')
       }
     }
   }

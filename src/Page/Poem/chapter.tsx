@@ -13,7 +13,7 @@ interface IState {
     HotBook2: Array<any>
 }
 const { Meta } = Card
-class Poem extends React.Component<IProps, IState> {
+class Chapter extends React.Component<IProps, IState> {
     state = {
         HotBook1: [],
         HotBook2: []
@@ -25,11 +25,10 @@ class Poem extends React.Component<IProps, IState> {
     render() {
         return (
             <div>
-                <Search/>
-                <HotNovel />
+              
             </div>
         )
     }
 }
 
-export default Poem
+export default Chapter

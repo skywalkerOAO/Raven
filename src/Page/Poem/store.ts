@@ -70,7 +70,7 @@ class store {
             status: number
         }
         try {
-            let res = await axios.get(`/search.aspx?key=${params}&page=1&siteid=app2&appid=iosbqg`,)
+            let res = await axios.get(`/novel/novelSearch/search.aspx?key=${params}&page=1&siteid=app2&appid=iosbqg`,)
             runInAction(() => {
                 if (res) {
                     let Result:SearchSturct = res.data

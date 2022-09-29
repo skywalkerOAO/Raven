@@ -3,14 +3,14 @@ import Meta from '@douyinfe/semi-ui/lib/es/card/meta'
 import { useState, useEffect } from 'react'
 import store from './store'
 import styles from './index.module.scss'
-interface IProps {
-
-}
+import { useNavigate } from 'react-router-dom'
+const jump = useNavigate()
+interface IProps {}
 const HotNovel = (props: IProps) => {
     const [hotBook1, setHotBook1] = useState<Array<any>>([])
     const [hotBook2, setHotBook2] = useState<Array<any>>([])
     useEffect(() => {
-        (async function fetchData() {
+        ;(async function fetchData() {
             await store.GetHot()
             let arr1 = []
             let arr2 = []
@@ -23,19 +23,24 @@ const HotNovel = (props: IProps) => {
             setHotBook1(arr1)
             setHotBook2(arr2)
         })()
-
-    }
-        , [])
+    }, [])
     return (
         <div>
-            <Row >
+            <Row>
                 <Col span={12} className={styles.NovelCol}>
                     <Space vertical>
                         {hotBook1.map((item: any, index: any, array: any) => {
                             return (
-                                <Card className={styles.card_box} bordered={false} headerLine={true} title={<Meta title={item.Name} description={item.Author} />} headerExtraContent={<span>{item.CName}</span>}>
-                                    <div className={styles.novel_desc}>{item.Desc.slice(0,80)+'...'}</div>
-                                </Card>
+                                <div
+                                    key={index}
+                                    onClick={() => {
+                                        jump(`/poem/chapter/${item.Id}`)
+                                    }}
+                                >
+                                    <Card shadows="hover" className={styles.card_box} bordered={false} headerLine={true} title={<Meta title={item.Name} description={item.Author} />} headerExtraContent={<span>{item.CName}</span>}>
+                                        {item.Desc.slice(0, 80) + '...'}
+                                    </Card>
+                                </div>
                             )
                         })}
                     </Space>
@@ -44,15 +49,21 @@ const HotNovel = (props: IProps) => {
                     <Space vertical>
                         {hotBook2.map((item: any, index: any, array: any) => {
                             return (
-                                <Card className={styles.card_box} bordered={false} headerLine={true} title={<Meta title={item.Name} description={item.Author} />} headerExtraContent={<span>{item.CName}</span>}>
-                                    <div className={styles.novel_desc}>{item.Desc.slice(0,80)+'...'}</div>
-                                </Card>
+                                <div
+                                    key={index}
+                                    onClick={() => {
+                                        console.log(item)
+                                    }}
+                                >
+                                    <Card shadows="hover" className={styles.card_box} bordered={false} headerLine={true} title={<Meta title={item.Name} description={item.Author} />} headerExtraContent={<span>{item.CName}</span>}>
+                                        {item.Desc.slice(0, 80) + '...'}
+                                    </Card>
+                                </div>
                             )
                         })}
                     </Space>
                 </Col>
             </Row>
-
         </div>
     )
 }
