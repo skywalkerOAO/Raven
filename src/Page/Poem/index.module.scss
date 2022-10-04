@@ -16,3 +16,18 @@
     height: 222px;
     padding: 2px;
 }
+
+.component-list-demo-booklist {
+    .list-item {
+        &:hover {
+            background-color: var(--semi-color-fill-0);
+        }
+        &:active {
+            background-color: var(--semi-color-fill-1);
+        }
+    }
+}
+
+.component-list-demo-booklist-active-item {
+    background-color: var(--semi-color-fill-0);
+}

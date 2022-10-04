@@ -4,9 +4,10 @@ import { useState, useEffect } from 'react'
 import store from './store'
 import styles from './index.module.scss'
 import { useNavigate } from 'react-router-dom'
-const jump = useNavigate()
+
 interface IProps {}
 const HotNovel = (props: IProps) => {
+    const jump = useNavigate()
     const [hotBook1, setHotBook1] = useState<Array<any>>([])
     const [hotBook2, setHotBook2] = useState<Array<any>>([])
     useEffect(() => {
@@ -34,7 +35,7 @@ const HotNovel = (props: IProps) => {
                                 <div
                                     key={index}
                                     onClick={() => {
-                                        jump(`/poem/chapter/${item.Id}`)
+                                        jump(`chapter/${item.Id}`, { replace: true })
                                     }}
                                 >
                                     <Card shadows="hover" className={styles.card_box} bordered={false} headerLine={true} title={<Meta title={item.Name} description={item.Author} />} headerExtraContent={<span>{item.CName}</span>}>
@@ -52,7 +53,7 @@ const HotNovel = (props: IProps) => {
                                 <div
                                     key={index}
                                     onClick={() => {
-                                        console.log(item)
+                                        jump(`chapter/${item.Id}`, { replace: true })
                                     }}
                                 >
                                     <Card shadows="hover" className={styles.card_box} bordered={false} headerLine={true} title={<Meta title={item.Name} description={item.Author} />} headerExtraContent={<span>{item.CName}</span>}>

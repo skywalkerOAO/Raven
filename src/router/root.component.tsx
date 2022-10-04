@@ -7,6 +7,7 @@ const Me = asyncComponent(() => import('../page/Me/index'))
 const News = asyncComponent(() => import('../page/News/index'))
 const Main = asyncComponent(() => import('../page/Main/index'))
 const Poem = asyncComponent(() => import('../page/Poem/index'))
+const Chapter = asyncComponent(() => import('../page/Poem/chapter'))
 const Video = asyncComponent(() => import('../page/Video/index'))
 const Favorite = asyncComponent(() => import('../page/Favorite/index'))
 const Cartoon = asyncComponent(() => import('../page/Cartoon/index'))
@@ -20,6 +21,8 @@ class RootComponent extends React.Component {
           <Route path='/me' element={<Me />} />
           <Route path='/news' element={<News />} />
           <Route path='/poem' element={<Poem/>} />
+          <Route path='/poem/chapter/:id' element={<Chapter/>}/>
+          <Route path='/poem/novel/:id' element={<Chapter/>}/>
           <Route path='/video' element={<Video/>} />
           <Route path='/favorite' element={<Favorite/>} />
           <Route path='/cartoon' element={<Cartoon/>} />

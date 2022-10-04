@@ -18,7 +18,11 @@ export default defineConfig({
         target: 'https://souxs.leeyegy.com',
         changeOrigin: true,
         rewrite: path => path.replace(/^\/novel\/novelSearch/, '')
-      }
-    }
+      },
+      '/novel/chapterList': {
+        target: 'https://infosxs.pysmei.com',
+        changeOrigin: true,
+        rewrite: path => path.replace(/^\/novel\/chapterList/, '')
+      },
   }
-})
+}})

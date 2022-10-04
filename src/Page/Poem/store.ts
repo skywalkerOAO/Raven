@@ -6,9 +6,9 @@ import api_Path from '../../api/index';
 
 
 class store {
-    @observable HotBookList:any = []
-    @observable SearchList:any = []
-
+    @observable HotBookList: any = []
+    @observable SearchList: any = []
+    @observable ChapterList: any = []
     @action.bound GetHot = async (params = {}) => {
 
         interface BookList {
@@ -73,7 +73,7 @@ class store {
             let res = await axios.get(`/novel/novelSearch/search.aspx?key=${params}&page=1&siteid=app2&appid=iosbqg`,)
             runInAction(() => {
                 if (res) {
-                    let Result:SearchSturct = res.data
+                    let Result: SearchSturct = res.data
                     this.SearchList = Result.data
                     //this.TableData = data
                     return
@@ -84,6 +84,35 @@ class store {
             Toast.info(`错误信息：${error}`)
         }
     }
+
+
+    @action.bound GetChapterList = async (params: number, params2: number) => {
+
+        try {
+            let res = await axios.get(`/novel/chapterList/BookFiles/Html/${params}/${params2}/index.html`)
+            runInAction(() => {
+                if (res) {
+                    let buffer = res.data;
+                    buffer = res.data.replace(/,]/g, "]");
+                    buffer = JSON.parse(buffer);
+                    let UNFLUSH_LIST = buffer.data.list
+                    let FLUSHED_LIST = [];
+                    for (let i = 0; i < UNFLUSH_LIST.length; i++) {
+                        for (let j = 0; j < UNFLUSH_LIST[i].list.length; j++) {
+                            FLUSHED_LIST.push(UNFLUSH_LIST[i].list[j]);
+                        }
+                    }
+                    this.ChapterList = FLUSHED_LIST; //  章节列表
+                    return
+                }
+            })
+        } catch (error) {
+
+            Toast.info(`错误信息：${error}`)
+        }
+    }
+
+
 }
 
 
