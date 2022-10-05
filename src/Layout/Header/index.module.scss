@@ -4,7 +4,7 @@ $height:40px;
 $width:50px;
 .winform {
     height: $height;
-    -webkit-app-region: drag;
+    -webkit-app-region: drag !important;
     border-radius: 5px 5px 0px 0px;
     background-color: $winform-color;
     border-bottom: 1px solid var(--semi-color-border);
@@ -16,7 +16,12 @@ $width:50px;
     background-color: $winform-color;
     -webkit-app-region: $drag-opt;
 }
-
+.navBtn {
+  height:$height !important;
+  float: left;
+  background-color: $winform-color;
+  -webkit-app-region: $drag-opt;
+}
 .topbar_logo_container {
     position: absolute;
     left:10px;

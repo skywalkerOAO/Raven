@@ -4,11 +4,20 @@ import { Toast } from '@douyinfe/semi-ui';
 import api_Path from '../../api/index';
 
 
-
+interface Bookdetail {
+    bookname: string
+    cname: string
+    content: string
+}
 class store {
+
+
+
     @observable HotBookList: any = []
     @observable SearchList: any = []
     @observable ChapterList: any = []
+    @observable NowIndex : number = 0
+    @observable BookContent: Bookdetail = { bookname: '', cname: '', content: '' }
     @action.bound GetHot = async (params = {}) => {
 
         interface BookList {
@@ -112,6 +121,39 @@ class store {
         }
     }
 
+    @action.bound GetContent = async (params: number, params2: number, params3: number) => {
+        interface Data {
+            cid: number,
+            cname: string,
+            content: string,
+            hasContent: number,
+            id: string,
+            name: string,
+            nid: number,
+            pid: number,
+        }
+        interface callback {
+            data: Data
+            info: string
+            status: number
+        }
+        try {
+            let res = await axios.get(`/novel/chapterList/BookFiles/Html/${params}/${params2}/${params3}.html`)
+            runInAction(() => {
+                if (res) {
+                    let Res: callback = res.data
+                    if (Res.status === 1) {
+                        this.BookContent.bookname = Res.data.name
+                        this.BookContent.cname = Res.data.cname
+                        this.BookContent.content = Res.data.content
+                    }
+                }
+            })
+        } catch (error) {
+
+            Toast.info(`错误信息：${error}`)
+        }
+    }
 
 }
 

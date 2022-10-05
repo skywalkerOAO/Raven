@@ -8,29 +8,30 @@ const News = asyncComponent(() => import('../page/News/index'))
 const Main = asyncComponent(() => import('../page/Main/index'))
 const Poem = asyncComponent(() => import('../page/Poem/index'))
 const Chapter = asyncComponent(() => import('../page/Poem/chapter'))
+const Novel = asyncComponent(() => import('../page/Poem/novel'))
 const Video = asyncComponent(() => import('../page/Video/index'))
 const Favorite = asyncComponent(() => import('../page/Favorite/index'))
 const Cartoon = asyncComponent(() => import('../page/Cartoon/index'))
 const Pic = asyncComponent(() => import('../page/Pic/index'))
 class RootComponent extends React.Component {
-  render() {
-    return (
-      <Frame>
-        <Routes>
-          <Route path='/' element={<Main />} />
-          <Route path='/me' element={<Me />} />
-          <Route path='/news' element={<News />} />
-          <Route path='/poem' element={<Poem/>} />
-          <Route path='/poem/chapter/:id' element={<Chapter/>}/>
-          <Route path='/poem/novel/:id' element={<Chapter/>}/>
-          <Route path='/video' element={<Video/>} />
-          <Route path='/favorite' element={<Favorite/>} />
-          <Route path='/cartoon' element={<Cartoon/>} />
-          <Route path='/pic' element={<Pic/>} />
-        </Routes>
-      </Frame>
-    )
-  }
+    render() {
+        return (
+            <Frame>
+                <Routes>
+                    <Route path="/" element={<Main />} />
+                    <Route path="/me" element={<Me />} />
+                    <Route path="/news" element={<News />} />
+                    <Route path="/poem/chapter/novel/:groupid/:bookid/:chapterid" element={<Novel />} />
+                    <Route path="/poem/chapter/:id" element={<Chapter />} />
+                    <Route path="/poem" element={<Poem />} />
+                    <Route path="/video" element={<Video />} />
+                    <Route path="/favorite" element={<Favorite />} />
+                    <Route path="/cartoon" element={<Cartoon />} />
+                    <Route path="/pic" element={<Pic />} />
+                </Routes>
+            </Frame>
+        )
+    }
 }
 
 export default RootComponent

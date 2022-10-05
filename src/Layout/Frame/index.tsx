@@ -1,5 +1,5 @@
 import React from 'react'
-import  WinHeader  from '../Header' 
+import WinHeader from '../Header'
 import { Layout } from '@douyinfe/semi-ui'
 import SiderBar from '../Siderbar'
 import Styles from './frame.module.scss'
@@ -15,11 +15,9 @@ class Frame extends React.Component<IProps, IState> {
     // eslint-disable-next-line @typescript-eslint/no-useless-constructor
     constructor(props: any) {
         super(props)
-        this.state = {
-     
-        }
+        this.state = {}
     }
-    
+
     render() {
         return (
             <div className={Semi.main_frame}>

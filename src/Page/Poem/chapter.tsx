@@ -4,7 +4,8 @@ import { useState, useEffect } from 'react'
 import store from './store'
 import styles from './index.module.scss'
 import { IconSearch } from '@douyinfe/semi-icons'
-import { useParams } from 'react-router-dom'
+import { useNavigate, useParams } from 'react-router-dom'
+import { sessionSet } from '../../utils/session'
 interface IProps {}
 interface INovel {
     id: number
@@ -15,6 +16,8 @@ const Chapter = (props: IProps) => {
     const param: any = useParams()
     const [chapterList, setChapterList] = useState<any>()
     const [page, onPageChange] = useState<number>(1)
+    const jump = useNavigate()
+
     useEffect(() => {
         ;(async function test() {
             let index = parseInt(param.id)
@@ -25,7 +28,10 @@ const Chapter = (props: IProps) => {
     }, [])
 
     function toNovel(v: INovel) {
-        console.log(v)
+        let bookid = parseInt(param.id)
+        let bookGroupid = Math.ceil(bookid / 1000)
+        let chapterid = v.id
+        jump(`/poem/chapter/novel/${bookGroupid}/${bookid}/${chapterid}`)
     }
     function getData(data: any, page: number) {
         let start = (page - 1) * 20
@@ -38,7 +44,7 @@ const Chapter = (props: IProps) => {
                 bordered={true}
                 header={'章节列表'}
                 dataSource={getData(chapterList, page)}
-                style={{ flexBasis: '100%', flexShrink: 0, borderBottom: '1px solid var(--semi-color-border)' }}
+                style={{ flexBasis: '100%', flexShrink: 0, borderBottom: '1px solid var(--semi-color-border)', color: 'var(--semi-color-text-0)' }}
                 className={styles['component-list-demo-booklist']}
                 renderItem={item => (
                     <div
