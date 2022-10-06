@@ -49,7 +49,7 @@ const FormHeader = (props: IProps) => {
         }
     }
     return (
-        <div className={styles.winform}>
+        <div  className={styles.winform}>
             <section>
                 <Button
                     id="back"

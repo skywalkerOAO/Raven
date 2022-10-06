@@ -30,8 +30,8 @@ class Frame extends React.Component<IProps, IState> {
                             <SiderBar />
                         </Sider>
                         <Content>
-                            <div className={Styles.frame}>
-                                <div className={Styles.wrapper}>{this.props.children}</div>
+                            <div className={Styles.frame} >
+                                <div className={Styles.wrapper} id="content_wrapper">{this.props.children}</div>
                             </div>
                         </Content>
                     </Layout>
