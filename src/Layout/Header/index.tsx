@@ -52,6 +52,7 @@ const FormHeader = (props: IProps) => {
         <div  className={styles.winform}>
             <section>
                 <Button
+                theme='borderless'
                     id="back"
                     onClick={() => {
                         navigate(-1)
@@ -62,6 +63,7 @@ const FormHeader = (props: IProps) => {
                     <IconChevronLeft />
                 </Button>
                 <Button
+                theme='borderless'
                     id="push"
                     onClick={() => {
                         navigate(+1)
@@ -73,16 +75,16 @@ const FormHeader = (props: IProps) => {
                 </Button>
             </section>
             <section>
-                <Button id="closebt" className={styles.btn}>
+                <Button theme='borderless' id="closebt" className={styles.btn}>
                     <IconClose />
                 </Button>
-                <Button id="maxbt" className={styles.btn}>
+                <Button theme='borderless' id="maxbt" className={styles.btn}>
                     <IconMaximize />
                 </Button>
-                <Button id="minbt" className={styles.btn}>
+                <Button theme='borderless' id="minbt" className={styles.btn}>
                     <IconMinus />
                 </Button>
-                <Button onClick={switchMode} className={styles.btn}>
+                <Button theme='borderless' onClick={switchMode} className={styles.btn}>
                     <IconBulb />
                 </Button>
             </section>

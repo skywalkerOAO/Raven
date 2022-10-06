@@ -13,6 +13,7 @@ $width:50px;
 .btn {
     height: $height !important;
     float: right;
+    border-radius: 0;
     background-color: $winform-color;
     -webkit-app-region: $drag-opt;
 }

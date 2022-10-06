@@ -1,5 +1,5 @@
 import { Button, Spin } from '@douyinfe/semi-ui'
-import { useState, useEffect, useRef } from 'react'
+import { useState, useEffect } from 'react'
 import store from './store'
 import styles from './index.module.scss'
 import { IconArrowUp } from '@douyinfe/semi-icons'
@@ -30,9 +30,7 @@ const Novel = (props: IProps) => {
                 }
             }
         })()
-        
     }, [])
-
     function scrollToTop() {
         let cDom = document.getElementById('content_wrapper')
         cDom?.scrollTo(0, 0)
