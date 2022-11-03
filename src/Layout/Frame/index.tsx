@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { PureComponent, ReactNode } from 'react'
 import WinHeader from '../Header'
 import { Layout } from '@douyinfe/semi-ui'
 import SiderBar from '../Siderbar'
@@ -7,15 +7,14 @@ import Semi from './semi.module.scss'
 const { Sider, Content, Header } = Layout
 
 interface IProps {
-    children: any
+    children: ReactNode
 }
 
 interface IState {}
-class Frame extends React.Component<IProps, IState> {
+class Frame extends PureComponent<IProps, IState> {
     // eslint-disable-next-line @typescript-eslint/no-useless-constructor
     constructor(props: any) {
         super(props)
-        this.state = {}
     }
 
     render() {
@@ -30,8 +29,10 @@ class Frame extends React.Component<IProps, IState> {
                             <SiderBar />
                         </Sider>
                         <Content>
-                            <div className={Styles.frame} >
-                                <div className={Styles.wrapper} id="content_wrapper">{this.props.children}</div>
+                            <div className={Styles.frame} style={{minWidth:1000}}>
+                                <div className={Styles.wrapper} id="content_wrapper">
+                                    {this.props.children}
+                                </div>
                             </div>
                         </Content>
                     </Layout>

@@ -24,15 +24,10 @@ export default defineConfig({
         changeOrigin: true,
         rewrite: path => path.replace(/^\/novel\/chapterList/, '')
       },
-      '/wbHot': {
+      '/Hot': {
         target: 'http://150.158.93.70:8880',
         changeOrigin: true,
-        rewrite: path => path.replace(/^\/wbHot/, '')
-      },
-      '/zhHot': {
-        target: 'https://www.zhihu.com',
-        changeOrigin: true,
-        rewrite: path => path.replace(/^\/zhHot/, '')
+        rewrite: path => path.replace(/^\/Hot/, '')
       },
   }
 }})
