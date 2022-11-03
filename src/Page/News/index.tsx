@@ -39,7 +39,13 @@ class News extends React.Component<IProps, IState> {
         )
     }
     openUrl = (item:Iitem)=>{
-      (window as any).ipcRenderer.send('open-url',`https://s.weibo.com/weibo?q=%23${item.content}%23&t=31&band_rank=${item.rank}&Refer=top`)
+      let userAgent = navigator.userAgent.toLowerCase();
+      if (userAgent.indexOf(' electron/') > -1) {
+       // Electron-specific code
+       (window as any).ipcRenderer.send('open-url',`https://s.weibo.com/weibo?q=%23${item.content}%23&t=31&band_rank=${item.rank}&Refer=top`)
+      }else{
+        window.open(`https://s.weibo.com/weibo?q=%23${item.content}%23&t=31&band_rank=${item.rank}&Refer=top`)
+      }
     }
     render() {
         return (
