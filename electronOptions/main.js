@@ -1,7 +1,8 @@
 const {
     app,
     BrowserWindow,
-    ipcMain
+    ipcMain,
+    shell,
 } = require('electron')
 const path = require('path')
 const url = require('url')
@@ -24,6 +25,11 @@ ipcMain.on('window-max', function () {
     }
 
 })
+
+ipcMain.on('open-url',(event, url)=>{
+    shell.openExternal(url);
+})
+
 function createWindow() {
     // 创建浏览器窗口。
     win = new BrowserWindow({
