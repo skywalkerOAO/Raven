@@ -29,7 +29,7 @@ class Frame extends PureComponent<IProps, IState> {
                             <SiderBar />
                         </Sider>
                         <Content>
-                            <div className={Styles.frame} style={{minWidth:1000}}>
+                            <div className={Styles.frame} >
                                 <div className={Styles.wrapper} id="content_wrapper">
                                     {this.props.children}
                                 </div>
